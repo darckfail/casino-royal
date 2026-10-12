@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accueil · Casino Royal Byte</title>
+<link rel="icon" href="assets/img/emblem.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap">
+<link rel="stylesheet" href="assets/css/ds/styles.css">
+<link rel="stylesheet" href="assets/css/casino.css">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
+<script src="assets/js/tables.js" defer></script>
+<script src="assets/js/journal.js" defer></script>
+<script src="assets/js/casino.js" defer></script>
+</head>
+<body class="theme-casino layout-student" data-page="accueil" data-racine="">
+<div class="ambient" aria-hidden="true"><div class="ambient__glow ambient__glow--a"></div><div class="ambient__glow ambient__glow--b"></div><div class="ambient__pattern"></div></div>
+
+<header class="topbar">
+    <div class="topbar__inner">
+        <a class="brand" href="index.html">
+            <svg class="emblem" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="5" stroke-dasharray="6.68 6.68" opacity=".55"/><circle cx="24" cy="24" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M24 17.5 29 24l-5 6.5-5-6.5z" fill="currentColor"/></svg>
+            <span class="brand__text"><span class="brand__name">Casino Royal Byte</span><span class="brand__tag">Club privé</span></span>
+        </a>
+        <nav class="nav" aria-label="Navigation principale">
+            <a class="nav__link" href="index.html" aria-current="page"><i data-lucide="layout-grid" class="icon"></i>Salon des jeux</a>
+            <a class="nav__link" href="reglement.html"><i data-lucide="scroll-text" class="icon"></i>Règlement</a>
+            <!-- <a class="nav__link" href="salon-prive.html">Salon VIP</a> — lien retiré du menu pendant la rénovation -->
+        </nav>
+        <div class="topbar__player" data-si-joueur hidden>
+            <div class="meter" title="Temps écoulé depuis ton entrée"><i data-lucide="clock" class="icon"></i><span class="meter__value" data-chrono>--:--</span></div>
+            <span class="player-pill"><i data-lucide="user-round" class="icon"></i><span data-valeur="nom"></span></span>
+        </div>
+    </div>
+</header>
+
+<main class="page">
+
+    <!-- Étape 1 : le joueur se présente -->
+    <section class="hero entree reveal" data-si-pas-joueur hidden>
+        <p class="eyebrow">Club privé · Sur invitation</p>
+        <h1 class="display">Casino Royal Byte</h1>
+        <p class="lead">Une soirée de 45 minutes, huit tables, autant d'énigmes. Chaque joueur reçoit des tables
+            préparées rien que pour lui : présente-toi au voiturier.</p>
+
+        <form id="form-joueur" class="form card" novalidate>
+            <div class="field">
+                <label class="field__label" for="nom">Ton prénom et ton nom</label>
+                <input class="input" id="nom" name="nom" type="text" autocomplete="name" required placeholder="ex. Camille Martin">
+                <p class="field__help">Écris-les exactement comme sur la liste de la classe. Ils servent à préparer tes tables.</p>
+                <p class="field__help" id="erreur-nom" hidden style="color: var(--color-danger)">Indique ton prénom ET ton nom.</p>
+            </div>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">Entrer dans le salon <i data-lucide="arrow-right" class="icon"></i></button>
+        </form>
+    </section>
+
+    <!-- Étape 2 : le salon -->
+    <div data-si-joueur hidden>
+        <section class="hero reveal">
+            <p class="eyebrow">Ce soir au Royal Byte</p>
+            <h1 class="display">Bonsoir, <span data-valeur="nom"></span>.</h1>
+            <p class="lead">Huit tables t'attendent. Le navigateur te sert à observer ; VS Code te sert à lire et, parfois,
+                à modifier les fichiers du casino pour lever ses protections. Aucune connaissance avancée n'est nécessaire :
+                seulement de l'observation, de la logique et de la persévérance.</p>
+
+            <div class="code-joueur">
+                <i data-lucide="badge-check" class="icon"></i>
+                <span>Ton code joueur :</span>
+                <span class="code-joueur__valeur" data-valeur="code">CRB-······</span>
+                <p>Recopie-le tout en haut du fichier <code>reponses.md</code>, avec ton prénom et ton nom.</p>
+            </div>
+
+            <dl class="stats">
+                <div class="stat"><dt class="stat__label">Temps écoulé</dt><dd class="stat__value" data-chrono>--:--</dd></div>
+                <div class="stat"><dt class="stat__label">Durée conseillée</dt><dd class="stat__value">45<small> min</small></dd></div>
+                <div class="stat"><dt class="stat__label">Tables</dt><dd class="stat__value">7<small> + 1 bonus</small></dd></div>
+                <div class="stat"><dt class="stat__label">Note</dt><dd class="stat__value stat__value--gold">/ 20</dd></div>
+            </dl>
+        </section>
+
+        <section class="reveal" style="--i:1" aria-labelledby="regles-titre">
+            <div class="section-head">
+                <h2 id="regles-titre" class="section-title">Comment jouer</h2>
+            </div>
+            <ol class="etapes">
+                <li class="etape"><strong>Observe</strong>Ouvre une table dans le navigateur. Le clic droit « Inspecter » (F12) montre ce que la page ne dit pas.</li>
+                <li class="etape"><strong>Fouille</strong>Dans VS Code, lis les fichiers HTML et CSS du casino. Certaines protections se lèvent en modifiant un fichier puis en rechargeant la page.</li>
+                <li class="etape"><strong>Note</strong>Écris chaque réponse dans <code>reponses.md</code>, à la section de la table.</li>
+                <li class="etape"><strong>Commit</strong>Fais un commit après chaque table trouvée, puis un dernier « Synchroniser » à la fin.</li>
+            </ol>
+        </section>
+
+        <section aria-labelledby="tables-titre">
+            <div class="section-head">
+                <h2 id="tables-titre" class="section-title">Les tables de jeu</h2>
+                <p class="section-sub">Commence où tu veux. Les indices de chaque table sont gratuits.</p>
+            </div>
+
+            <ul class="module-grid" role="list">
+                <li class="module-card module-card--available reveal" style="--i:2"><a class="module-card__link" href="tables/ticket-gagnant.html">
+                    <div class="module-card__top"><span class="module-card__icon"><i data-lucide="ticket" class="icon"></i></span><span class="etiquette-points">Table 1</span></div>
+                    <h3 class="module-card__title">Le ticket gagnant</h3>
+                    <p class="module-card__desc">Quelque chose ne colle pas dans ce ticket.</p>
+                    <div class="module-card__meta"><span class="badge badge--easy">Facile</span><span class="chip-points">2 pts</span></div>
+                </a></li>
+                <li class="module-card module-card--available reveal" style="--i:3"><a class="module-card__link" href="tables/joueur-mysterieux.html">
+                    <div class="module-card__top"><span class="module-card__icon"><i data-lucide="user-search" class="icon"></i></span><span class="etiquette-points">Table 2</span></div>
+                    <h3 class="module-card__title">Le joueur mystérieux</h3>
+                    <p class="module-card__desc">Un profil semble ne pas appartenir aux joueurs ordinaires.</p>
+                    <div class="module-card__meta"><span class="badge badge--easy">Facile</span><span class="chip-points">2 pts</span></div>
+                </a></li>
+                <li class="module-card module-card--available reveal" style="--i:4"><a class="module-card__link" href="tables/roulette-truquee.html">
+                    <div class="module-card__top"><span class="module-card__icon"><i data-lucide="disc-3" class="icon"></i></span><span class="etiquette-points">Table 3</span></div>
+                    <h3 class="module-card__title">La roulette truquée</h3>
+                    <p class="module-card__desc">Les résultats de la roulette suivent-ils vraiment le hasard ?</p>
+                    <div class="module-card__meta"><span class="badge badge--medium">Moyen</span><span class="chip-points">2,5 pts</span></div>
+                </a></li>
+                <li class="module-card module-card--available reveal" style="--i:5"><a class="module-card__link" href="tables/coffre-directeur.html">
+                    <div class="module-card__top"><span class="module-card__icon"><i data-lucide="vault" class="icon"></i></span><span class="etiquette-points">Table 4</span></div>
+                    <h3 class="module-card__title">Le coffre du directeur</h3>
+                    <p class="module-card__desc">Retrouve les informations nécessaires pour ouvrir le coffre.</p>
+                    <div class="module-card__meta"><span class="badge badge--medium">Moyen</span><span class="chip-points">3 pts</span></div>
+                </a></li>
+                <li class="module-card module-card--available reveal" style="--i:6"><a class="module-card__link" href="tables/salon-vip.html">
+                    <div class="module-card__top"><span class="module-card__icon"><i data-lucide="gem" class="icon"></i></span><span class="etiquette-points">Table 5</span></div>
+                    <h3 class="module-card__title">Le salon VIP</h3>
+                    <p class="module-card__desc">Une partie du casino semble absente de la navigation.</p>
+                    <div class="module-card__meta"><span class="badge badge--medium">Moyen</span><span class="chip-points">2,5 pts</span></div>
+                </a></li>
+                <li class="module-card module-card--available reveal" style="--i:7"><a class="module-card__link" href="tables/message-croupier.html">
+                    <div class="module-card__top"><span class="module-card__icon"><i data-lucide="mail" class="icon"></i></span><span class="etiquette-points">Table 6</span></div>
+                    <h3 class="module-card__title">Le message du croupier</h3>
+                    <p class="module-card__desc">Un message codé circule entre deux tables.</p>
+                    <div class="module-card__meta"><span class="badge badge--hard">Difficile</span><span class="chip-points">3,5 pts</span></div>
+                </a></li>
+                <li class="module-card module-card--available reveal" style="--i:8"><a class="module-card__link" href="tables/caisse-automatique.html">
+                    <div class="module-card__top"><span class="module-card__icon"><i data-lucide="calculator" class="icon"></i></span><span class="etiquette-points">Table 7</span></div>
+                    <h3 class="module-card__title">La caisse automatique</h3>
+                    <p class="module-card__desc">Comprends la règle utilisée par la caisse.</p>
+                    <div class="module-card__meta"><span class="badge badge--hard">Difficile</span><span class="chip-points">4,5 pts</span></div>
+                </a></li>
+                <li class="module-card module-card--available module-card--legendary reveal" style="--i:9"><a class="module-card__link" href="tables/jackpot-fantome.html">
+                    <div class="module-card__top"><span class="module-card__icon"><i data-lucide="sparkles" class="icon"></i></span><span class="etiquette-points">Bonus</span></div>
+                    <h3 class="module-card__title">Le Jackpot Fantôme</h3>
+                    <p class="module-card__desc">Un défi bonus volontairement hors norme.</p>
+                    <div class="module-card__meta"><span class="badge badge--legendary">Légendaire</span><span class="chip-points chip-points--bonus">bonus</span></div>
+                </a></li>
+            </ul>
+        </section>
+
+        <div class="alert alert--info reveal" style="--i:10; margin-top: var(--space-6)">
+            <i data-lucide="shield-check" class="icon"></i>
+            <p><strong>Évaluation.</strong> Le formateur corrige à partir de ton dépôt synchronisé : le fichier
+                <code>reponses.md</code>, les fichiers que tu as modifiés et l'historique de tes commits.
+                Rien d'autre n'est observé sur ton ordinateur.
+                <br><button type="button" class="lien-discret" id="changer-joueur">Ce n'est pas moi : changer de joueur</button></p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer__inner">
+        <p class="footer__brand">Casino Royal Byte — établissement fictif, jeu pédagogique. Aucune mise réelle.</p>
+        <nav class="footer__links" aria-label="Liens de pied de page"><a href="reglement.html">Règlement intérieur</a></nav>
+    </div>
+</footer>
+</body>
+</html>

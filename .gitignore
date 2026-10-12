@@ -1,0 +1,5 @@
+.vscode/*
+!.vscode/journal.jsonl
+.DS_Store
+Thumbs.db
+*.crswap

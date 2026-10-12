@@ -1,0 +1,109 @@
+/* ============================================================
+   ABC Informatique — Color tokens
+   Palette derived directly from the logo gradients:
+   navy → sky blue (primary swoosh) and cyan → teal (accent swoosh)
+   ============================================================ */
+:root {
+  /* --- Brand raw palette (exact logo stops) --- */
+  --abc-navy:  #0F405D; /* deepest gradient stop */
+  --abc-ocean: #1C5170;
+  --abc-steel: #3F7EA1;
+  --abc-sky:   #62ABD2; /* lightest blue stop */
+  --abc-cyan:  #5EB6D2; /* teal swoosh start */
+  --abc-teal:  #61B6BE;
+  --abc-mint:  #65B6AA; /* teal swoosh end */
+
+  /* --- Primary blue scale (built around --abc-steel / --abc-sky) --- */
+  --blue-50:  #eef6fb;
+  --blue-100: #d6e9f4;
+  --blue-200: #b0d3e8;
+  --blue-300: #82b8da;
+  --blue-400: #62abd2; /* --abc-sky */
+  --blue-500: #3f7ea1; /* --abc-steel */
+  --blue-600: #2f6688;
+  --blue-700: #1c5170; /* --abc-ocean */
+  --blue-800: #143f57;
+  --blue-900: #0f405d; /* --abc-navy */
+  --blue-950: #0a2c40;
+
+  /* --- Accent teal scale (built around --abc-teal / --abc-mint) --- */
+  --teal-50:  #eef8f6;
+  --teal-100: #d3ede9;
+  --teal-200: #a9ddd6;
+  --teal-300: #7cc9c1;
+  --teal-400: #65b6aa; /* --abc-mint */
+  --teal-500: #4f9e93;
+  --teal-600: #3f8177;
+  --teal-700: #356961;
+  --teal-800: #2c5450;
+  --teal-900: #264643;
+
+  /* --- Neutral scale (cool grey, slight blue cast to match brand) --- */
+  --grey-0:   #ffffff;
+  --grey-50:  #f6f8fa;
+  --grey-100: #eceff3;
+  --grey-200: #dde3ea;
+  --grey-300: #c3ccd6;
+  --grey-400: #97a3b1;
+  --grey-500: #6b7885;
+  --grey-600: #4f5b67;
+  --grey-700: #3a444e;
+  --grey-800: #262d34;
+  --grey-900: #161b20;
+  --grey-950: #0c0f12;
+
+  /* --- Semantic hues --- */
+  --green-500: #2f9e6b;
+  --green-100: #d9f2e5;
+  --amber-500: #d99512;
+  --amber-100: #fbeecd;
+  --red-500:   #d1495b;
+  --red-100:   #f9dde1;
+
+  /* --- Signature gradients (from the logo) --- */
+  --gradient-brand: linear-gradient(120deg, #0f405d 0%, #1c5170 20%, #3f7ea1 59%, #62abd2 95%); /* @kind color */
+  --gradient-accent: linear-gradient(120deg, #5eb6d2 0%, #61b6be 53%, #65b6aa 100%); /* @kind color */
+  --gradient-full: linear-gradient(120deg, #0f405d 0%, #3f7ea1 45%, #62abd2 62%, #65b6aa 100%); /* @kind color */
+
+  /* ============================================================
+     SEMANTIC ALIASES — use these in components
+     ============================================================ */
+  --color-primary:        var(--blue-500);
+  --color-primary-hover:  var(--blue-600);
+  --color-primary-active: var(--blue-700);
+  --color-primary-subtle: var(--blue-50);
+  --color-primary-fg:     #ffffff;
+
+  --color-accent:        var(--teal-500);
+  --color-accent-hover:  var(--teal-600);
+  --color-accent-subtle: var(--teal-50);
+  --color-accent-fg:     #ffffff;
+
+  --text-strong:  var(--grey-900);
+  --text-body:    var(--grey-700);
+  --text-muted:   var(--grey-500);
+  --text-subtle:  var(--grey-400);
+  --text-onbrand: #ffffff;
+  --text-link:    var(--blue-600);
+  --text-link-hover: var(--blue-800);
+
+  --surface-page:    var(--grey-50);
+  --surface-card:    var(--grey-0);
+  --surface-sunken:  var(--grey-100);
+  --surface-inverse: var(--blue-900);
+  --surface-hover:   var(--grey-50);
+
+  --border-subtle:  var(--grey-200);
+  --border-default: var(--grey-300);
+  --border-strong:  var(--grey-400);
+  --border-focus:   var(--blue-400);
+
+  --color-success: var(--green-500);
+  --color-success-subtle: var(--green-100);
+  --color-warning: var(--amber-500);
+  --color-warning-subtle: var(--amber-100);
+  --color-danger:  var(--red-500);
+  --color-danger-subtle: var(--red-100);
+
+  --focus-ring: 0 0 0 3px rgba(98, 171, 210, 0.45);
+}

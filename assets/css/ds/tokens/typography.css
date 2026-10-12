@@ -1,0 +1,43 @@
+/* ============================================================
+   ABC Informatique — Typography tokens
+   Display: Montserrat (geometric sans matching the logo wordmark)
+   Body/UI: Source Sans 3 (humanist, highly legible)
+   Mono:    IBM Plex Mono (technical / code contexts)
+   NOTE: the logo wordmark's original font data was stripped from
+   the SVG; Montserrat is the closest common match — see README.
+   ============================================================ */
+:root {
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Weights */
+  --fw-regular: 400;   /* @kind font */
+  --fw-medium: 500;    /* @kind font */
+  --fw-semibold: 600;  /* @kind font */
+  --fw-bold: 700;      /* @kind font */
+  --fw-extrabold: 800; /* @kind font */
+
+  /* Type scale (1.25 major-third-ish, tuned) */
+  --fs-display: 3.5rem;   /* 56px hero */
+  --fs-h1: 2.5rem;        /* 40px */
+  --fs-h2: 2rem;          /* 32px */
+  --fs-h3: 1.5rem;        /* 24px */
+  --fs-h4: 1.25rem;       /* 20px */
+  --fs-lg: 1.125rem;      /* 18px */
+  --fs-body: 1rem;        /* 16px */
+  --fs-sm: 0.875rem;      /* 14px */
+  --fs-xs: 0.75rem;       /* 12px */
+
+  /* Line heights */
+  --lh-tight: 1.1;     /* @kind font */
+  --lh-snug: 1.25;     /* @kind font */
+  --lh-normal: 1.5;    /* @kind font */
+  --lh-relaxed: 1.65;  /* @kind font */
+
+  /* Letter spacing */
+  --ls-tight: -0.02em; /* @kind font */
+  --ls-normal: 0;      /* @kind font */
+  --ls-wide: 0.04em;   /* @kind font */
+  --ls-wider: 0.14em;  /* @kind font */ /* logo "DIGITAL" tracking */
+}
